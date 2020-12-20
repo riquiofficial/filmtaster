@@ -1,10 +1,13 @@
+//styles and animations
 import GlobalStyles from "./components/GlobalStyles";
+//components
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <div className="App">
       <GlobalStyles />
-      <h2>FilmTaster</h2>
+      <Nav />
     </div>
   );
 }

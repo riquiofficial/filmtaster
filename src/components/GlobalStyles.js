@@ -24,7 +24,6 @@ const GlobalStyles = createGlobalStyle`
     h2 {
         font-size: 3rem;
         font-family: 'Poiret One', cursive;
-        font-weight: lighter;
         color: #333;
     }
     h3 {
