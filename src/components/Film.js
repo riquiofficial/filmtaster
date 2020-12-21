@@ -10,7 +10,7 @@ const Film = ({ name, released, image, id }) => {
     <StyledGame>
       <h3>{name}</h3>
       <p>{released}</p>
-      <img src={image} alt={`${name} poster`} />
+      <img src={image} alt={`poster for ${name}`} />
     </StyledGame>
   );
 };

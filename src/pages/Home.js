@@ -7,6 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Film from "../components/Film";
 //api
 import { movieImage } from "../api";
+//media
+import defaultImage from "../img/default.jpg";
 
 const Home = () => {
   //fetch games
@@ -27,7 +29,11 @@ const Home = () => {
               <Film
                 name={film.title}
                 released={film.release_date}
-                image={movieImage(film.backdrop_path)}
+                image={
+                  film.backdrop_path
+                    ? movieImage(film.backdrop_path)
+                    : defaultImage
+                }
                 id={film.id}
                 key={film.id}
               />
