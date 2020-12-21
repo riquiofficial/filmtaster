@@ -26,8 +26,8 @@ const Home = () => {
             {searched.map((film) => (
               <Film
                 name={film.title}
-                released={film.released_date}
-                image={movieImage(film.poster_path)}
+                released={film.release_date}
+                image={movieImage(film.backdrop_path)}
                 id={film.id}
                 key={film.id}
               />
@@ -44,7 +44,7 @@ const Home = () => {
         {popular.map((film) => (
           <Film
             name={film.title}
-            released={film.released_date}
+            released={film.release_date}
             image={movieImage(film.backdrop_path)}
             id={film.id}
             key={film.id}

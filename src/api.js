@@ -8,5 +8,7 @@ export const searchFilmsUrl = (film_name) =>
 
 export const movieDetail = (id) => `${baseUrl}${id}?api_key=${apiKey}`;
 
-export const movieImage = (poster_path) =>
-  `https://image.tmdb.org/t/p/w500${poster_path}`;
+export const movieImage = (poster_path) => {
+  poster_path = poster_path.replace(/\s+/g, "+").toLowerCase();
+  return `https://image.tmdb.org/t/p/w500${poster_path}`;
+};
