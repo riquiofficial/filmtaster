@@ -1,4 +1,11 @@
-const key = process.env.REACT_APP_API_KEY;
 const baseUrl = `https://api.themoviedb.org/3/movie/`;
+const apiKey = process.env.REACT_APP_API_KEY;
 
-const popular = `${baseUrl}popular?api_key=${key}&language=en-US&page=1`;
+export const popularFilmsUrl = `${baseUrl}popular?api_key=${apiKey}&language=en-US&page=1`;
+
+export const searchFilmsUrl = (film_name) =>
+  `${baseUrl}search/movie?api_key=${apiKey}&query=${film_name}`;
+
+export const movieDetail = (id) => `${baseUrl}${id}?api_key=${apiKey}`;
+
+export const movieImage = (url) => `https://image.tmdb.org/t/p/w500/${url}.jpg`;

@@ -1,13 +1,30 @@
 import styled from "styled-components";
+import { useState } from "react";
+//redux
+import { fetchSearch } from "../actions/filmActions";
+import { useDispatch } from "react-redux";
 
 const Nav = () => {
+  const dispatch = useDispatch();
+  const [textInput, setTextInput] = useState("");
+  const inputHandler = (e) => {
+    setTextInput(e.target.value);
+  };
+  const submitSearch = (e) => {
+    e.preventDefault();
+    dispatch(fetchSearch(textInput));
+    setTextInput("");
+  };
+
   return (
     <StyledNav>
       <h2>FilmTaster</h2>
 
       <form className="search">
-        <input />
-        <button type="submit">Search</button>
+        <input value={textInput} type="text" onChange={inputHandler} />
+        <button type="submit" onClick={submitSearch}>
+          Search
+        </button>
       </form>
     </StyledNav>
   );
