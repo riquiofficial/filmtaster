@@ -1,21 +1,23 @@
 import styled from "styled-components";
 //redux
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 
-const Film = ({ name, released, image, id }) => {
-  const stringPathId = id.toString();
-  const dispatch = useDispatch();
+const Film = ({ name, released, image, vote, id, key }) => {
+  // const stringPathId = id.toString();
+  // const dispatch = useDispatch();
+  console.log(vote);
 
   return (
-    <StyledGame>
+    <StyledFilm>
       <h3>{name}</h3>
       <p>{released}</p>
+      <p>Rating: {vote}/10</p>
       <img src={image} alt={`poster for ${name}`} />
-    </StyledGame>
+    </StyledFilm>
   );
 };
 
-const StyledGame = styled.div`
+const StyledFilm = styled.div`
   min-height: 30vh;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
