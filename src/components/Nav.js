@@ -50,8 +50,17 @@ const StyledNav = styled.nav`
     border: none;
     padding: 0.5rem 2rem;
     cursor: pointer;
-    background: #ff7676;
+    background: #42b6db;
     color: white;
+    transition: all 0.2s ease;
+    &:hover {
+      box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+    &:active {
+      transform: translateY(0px);
+      box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
+    }
   }
   img {
     width: 70px;
