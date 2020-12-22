@@ -3,6 +3,7 @@ import { useState } from "react";
 //redux
 import { fetchSearch } from "../actions/filmActions";
 import { useDispatch } from "react-redux";
+import apiLogo from "../img/tmdb.svg";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,9 @@ const Nav = () => {
         <button type="submit" onClick={submitSearch}>
           Search
         </button>
+        <p>
+          Powered by: <img src={apiLogo} alt="tmdb logo" />
+        </p>
       </form>
     </StyledNav>
   );
@@ -48,6 +52,12 @@ const StyledNav = styled.nav`
     cursor: pointer;
     background: #ff7676;
     color: white;
+  }
+  img {
+    width: 70px;
+    height: 50px;
+    display: inline;
+    padding-top: 40px;
   }
 `;
 
