@@ -5,12 +5,16 @@ import { loadFilms } from "../actions/filmActions";
 import { useSelector, useDispatch } from "react-redux";
 //components
 import Film from "../components/Film";
+import FilmDetail from "../components/FilmDetail";
 //api
 import { movieImage } from "../api";
 //media
 import defaultImage from "../img/default.jpg";
+//router
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  const location = useLocation();
   //fetch games
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,9 +22,11 @@ const Home = () => {
   }, [dispatch]);
   //get data
   const { popular, searched } = useSelector((state) => state.films);
+  const pathId = location.pathname.split("/")[2];
 
   return (
     <FilmList>
+      {pathId && <FilmDetail pathId={pathId} />}
       {searched.length ? (
         <div className="searched">
           <h2>Searched Films</h2>

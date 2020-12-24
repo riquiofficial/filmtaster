@@ -3,14 +3,17 @@ import GlobalStyles from "./components/GlobalStyles";
 //components
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
-//redux
+//router
+import { Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <GlobalStyles />
       <Nav />
-      <Home />
+      <Route path={["/game/:id", "/"]}>
+        <Home />
+      </Route>
     </div>
   );
 }

@@ -1,18 +1,27 @@
 import styled from "styled-components";
 //redux
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { loadDetail } from "../actions/detailAction";
+//router
+import { Link } from "react-router-dom";
 
-const Film = ({ name, released, image, vote, id, key }) => {
+const Film = ({ name, released, image, vote, id }) => {
   // const stringPathId = id.toString();
-  // const dispatch = useDispatch();
-  console.log(vote);
+  const dispatch = useDispatch();
+
+  const loadDetailHandler = () => {
+    document.body.style.overflow = "hidden";
+    dispatch(loadDetail(id));
+  };
 
   return (
-    <StyledFilm>
-      <h3>{name}</h3>
-      <p>{released}</p>
-      <p>Rating: {vote}/10</p>
-      <img src={image} alt={`poster for ${name}`} />
+    <StyledFilm onClick={loadDetailHandler}>
+      <Link to={`/film/${id}`}>
+        <h3>{name}</h3>
+        <p>{released}</p>
+        <p>Rating: {vote}/10</p>
+        <img src={image} alt={`poster for ${name}`} />
+      </Link>
     </StyledFilm>
   );
 };
