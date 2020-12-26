@@ -45,6 +45,7 @@ const StyledNav = styled.nav`
     margin-top: 1rem;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
   }
+
   button {
     font-size: 1.5rem;
     border: none;
@@ -67,6 +68,12 @@ const StyledNav = styled.nav`
     height: 50px;
     display: inline;
     padding-top: 40px;
+  }
+  @media screen and (max-width: 700px) {
+    width: 100%;
+    input {
+      width: 50%;
+    }
   }
 `;
 

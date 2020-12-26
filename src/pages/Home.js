@@ -76,6 +76,14 @@ const FilmList = styled.div`
   h2 {
     padding: 5rem 0rem;
   }
+  @media screen and (max-width: 700px) {
+    margin-left: 1rem;
+    padding: 0 1rem;
+  }
+  h2 {
+    margin: 1rem 1rem;
+    padding: 0;
+  }
 `;
 
 const Films = styled.div`
@@ -85,6 +93,8 @@ const Films = styled.div`
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
   @media screen and (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 
