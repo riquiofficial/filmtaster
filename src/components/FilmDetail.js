@@ -113,7 +113,7 @@ const Gallery = styled.div`
   flex-flow: column-wrap;
   overflow: scroll;
   .gallery_image {
-    min-width: 20%;
+    width: 40%;
     flex: 1 0 auto;
   }
 `;
