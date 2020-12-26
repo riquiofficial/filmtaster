@@ -44,6 +44,7 @@ const FilmDetail = ({ pathId }) => {
             </Stats>
             <Media>
               <img
+                className="main_image"
                 layoutId={`image ${pathId}`}
                 src={film.backdrop_path ? movieImage(film.poster_path) : null}
                 alt={film.background_image}
@@ -52,15 +53,16 @@ const FilmDetail = ({ pathId }) => {
             <Description>
               <p>{film.overview}</p>
             </Description>
-            {/* <div className="gallery">
+            <Gallery>
               {film.images.backdrops.map((screen) => (
                 <img
-                  src={movieImage(screen.poster_path)}
-                  key={screen.poster_path}
+                  className="gallery_image"
+                  src={movieImage(screen.file_path)}
+                  key={screen.file_path}
                   alt={screen}
                 />
               ))}
-            </div> */}
+            </Gallery>
           </Detail>
         </CardShadow>
       }
@@ -83,7 +85,7 @@ const CardShadow = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #ff7676;
+    background-color: #42b6db;
   }
 
   &::-webkit-scrollbar-track {
@@ -100,8 +102,19 @@ const Detail = styled.div`
   left: 10%;
   color: black;
   z-index: 10;
-  img {
-    width: 100%;
+  .main_image {
+    width: 60%;
+  }
+`;
+
+const Gallery = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: column-wrap;
+  overflow: scroll;
+  .gallery_image {
+    min-width: 20%;
+    flex: 1 0 auto;
   }
 `;
 
