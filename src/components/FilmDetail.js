@@ -36,8 +36,9 @@ const FilmDetail = ({ pathId }) => {
                 <p>{film.tagline ? `"${film.tagline}"` : null}</p>
                 <p>Release Date: {film.release_date},</p>
                 <p>
-                  Revenue: $
-                  {film.revenue ? getRevenue(film.revenue) : "unknown"}
+                  {film.revenue
+                    ? `Revenue: $${getRevenue(film.revenue)}`
+                    : null}
                 </p>
               </div>
             </Stats>
