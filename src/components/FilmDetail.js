@@ -28,10 +28,10 @@ const FilmDetail = ({ pathId }) => {
     <>
       {
         <CardShadow className="shadow" onClick={exitDetailHander}>
-          <Detail layoutId={pathId}>
+          <Detail>
             <Stats>
               <div className="rating">
-                <h3 layoutId={`title ${pathId}`}>{film.title}</h3>
+                <h3>{film.title}</h3>
                 <p>Rating: {film.vote_average}/10</p>
                 <p>{film.tagline ? `"${film.tagline}"` : null}</p>
                 <p>Release Date: {film.release_date},</p>
@@ -44,21 +44,17 @@ const FilmDetail = ({ pathId }) => {
             </Stats>
 
             <div className="trailer">
-              {film.videos
-                ? film.videos.results.map((screen) => (
-                    <iframe
-                      className="gallery_movie"
-                      allowfullscreen="allowfullscreen"
-                      mozallowfullscreen="mozallowfullscreen"
-                      msallowfullscreen="msallowfullscreen"
-                      oallowfullscreen="oallowfullscreen"
-                      webkitallowfullscreen="webkitallowfullscreen"
-                      key={screen.id}
-                      title={screen.name}
-                      src={`https://www.youtube.com/embed/${screen.key}`}
-                    />
-                  ))
-                : ""}
+              {film.videos ? (
+                <iframe
+                  className="gallery_movie"
+                  allowFullScreen="allowfullscreen"
+                  key={film.videos.results[0].id}
+                  title={film.videos.results[0].name}
+                  src={`https://www.youtube.com/embed/${film.videos.results[0].key}`}
+                />
+              ) : (
+                ""
+              )}
             </div>
 
             <Description>
@@ -79,7 +75,6 @@ const FilmDetail = ({ pathId }) => {
             <Media>
               <img
                 className="main_image"
-                layoutId={`image ${pathId}`}
                 src={film.backdrop_path ? movieImage(film.poster_path) : null}
                 alt={film.background_image}
               />
