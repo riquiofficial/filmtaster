@@ -126,6 +126,15 @@ const Detail = styled.div`
     width: 100%;
     height: 70vh;
   }
+  @media screen and (max-width: 700px) {
+    padding: 0.5rem;
+    .gallery_movie {
+      height: 15rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
 `;
 
 const Gallery = styled.div`

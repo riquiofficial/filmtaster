@@ -77,7 +77,6 @@ const FilmList = styled.div`
     padding: 5rem 0rem;
   }
   @media screen and (max-width: 700px) {
-    margin-left: 1rem;
     padding: 0 1rem;
   }
   h2 {

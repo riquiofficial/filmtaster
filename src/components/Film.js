@@ -33,6 +33,7 @@ const StyledFilm = styled.div`
   border-radius: 1rem;
   cursor: pointer;
   overflow: hidden;
+  margin-bottom: 1rem;
   img {
     width: 100%;
     height: 40vh;

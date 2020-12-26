@@ -72,7 +72,7 @@ const StyledNav = styled.nav`
   @media screen and (max-width: 700px) {
     width: 100%;
     input {
-      width: 50%;
+      width: 100%;
     }
   }
 `;
