@@ -42,6 +42,40 @@ const FilmDetail = ({ pathId }) => {
                 </p>
               </div>
             </Stats>
+
+            <div className="trailer">
+              {film.videos
+                ? film.videos.results.map((screen) => (
+                    <iframe
+                      className="gallery_movie"
+                      allowfullscreen="allowfullscreen"
+                      mozallowfullscreen="mozallowfullscreen"
+                      msallowfullscreen="msallowfullscreen"
+                      oallowfullscreen="oallowfullscreen"
+                      webkitallowfullscreen="webkitallowfullscreen"
+                      key={screen.id}
+                      title={screen.name}
+                      src={`https://www.youtube.com/embed/${screen.key}`}
+                    />
+                  ))
+                : ""}
+            </div>
+
+            <Description>
+              <p>{film.overview}</p>
+            </Description>
+            <Gallery>
+              {film.images
+                ? film.images.backdrops.map((screen) => (
+                    <img
+                      className="gallery_image"
+                      src={movieImage(screen.file_path)}
+                      key={screen.file_path}
+                      alt={screen}
+                    />
+                  ))
+                : ""}
+            </Gallery>
             <Media>
               <img
                 className="main_image"
@@ -50,19 +84,6 @@ const FilmDetail = ({ pathId }) => {
                 alt={film.background_image}
               />
             </Media>
-            <Description>
-              <p>{film.overview}</p>
-            </Description>
-            <Gallery>
-              {film.images.backdrops.map((screen) => (
-                <img
-                  className="gallery_image"
-                  src={movieImage(screen.file_path)}
-                  key={screen.file_path}
-                  alt={screen}
-                />
-              ))}
-            </Gallery>
           </Detail>
         </CardShadow>
       }
@@ -104,6 +125,11 @@ const Detail = styled.div`
   z-index: 10;
   .main_image {
     width: 60%;
+  }
+  .gallery_movie {
+    margin-top: 3rem;
+    width: 100%;
+    height: 70vh;
   }
 `;
 
