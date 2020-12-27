@@ -36,11 +36,7 @@ const Home = () => {
                 <Film
                   name={film.title}
                   released={film.release_date}
-                  image={
-                    film.backdrop_path
-                      ? movieImage(film.backdrop_path)
-                      : defaultImage
-                  }
+                  image={movieImage(film.backdrop_path)}
                   vote={film.vote_average}
                   id={film.id}
                   key={film.id}
