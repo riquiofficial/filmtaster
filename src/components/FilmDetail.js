@@ -1,6 +1,7 @@
 import styled from "styled-components";
 //images
 import { movieImage } from "../api";
+import cross from "../img/cross.svg";
 //router
 import { useHistory } from "react-router-dom";
 //redux
@@ -11,7 +12,10 @@ const FilmDetail = ({ pathId }) => {
 
   const exitDetailHander = (e) => {
     const element = e.target;
-    if (element.classList.contains("shadow")) {
+    if (
+      element.classList.contains("shadow") ||
+      element.classList.contains("cross")
+    ) {
       history.push("/");
     }
   };
@@ -39,6 +43,12 @@ const FilmDetail = ({ pathId }) => {
                     ? `Revenue: $${getRevenue(film.revenue)}`
                     : null}
                 </p>
+                <img
+                  className="cross"
+                  src={cross}
+                  alt="exit"
+                  onClick={exitDetailHander}
+                />
               </div>
             </Stats>
 
@@ -59,6 +69,7 @@ const FilmDetail = ({ pathId }) => {
             <Description>
               <p>{film.overview}</p>
             </Description>
+            <h3>Gallery</h3>
             <Gallery>
               {film.images
                 ? film.images.backdrops.map((screen) => (
@@ -126,7 +137,9 @@ const Detail = styled.div`
     height: 70vh;
   }
   @media screen and (max-width: 700px) {
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem;
+    width: 100%;
+    left: 0;
     .gallery_movie {
       height: 15rem;
     }
@@ -145,6 +158,11 @@ const Gallery = styled.div`
     width: 40%;
     flex: 1 0 auto;
   }
+  @media screen and (max-width: 700px) {
+    .gallery_image {
+      width: 90%;
+    }
+  }
 `;
 
 const Stats = styled.div`
@@ -155,6 +173,12 @@ const Stats = styled.div`
     width: 2rem;
     height: 2rem;
     display: inline;
+  }
+  .cross {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
   }
 `;
 
