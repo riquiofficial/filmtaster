@@ -34,10 +34,16 @@ const FilmDetail = ({ pathId }) => {
           <Detail>
             <Stats>
               <div className="rating">
-                <h3>{film.title}</h3>
-                <p>Rating: {film.vote_average}/10</p>
+                <h3>{film.title ? film.title : null}</h3>
+                <p>
+                  {film.vote_average ? `Rating: ${film.vote_average}/10` : null}
+                </p>
                 <p>{film.tagline ? `"${film.tagline}"` : null}</p>
-                <p>Release Date: {film.release_date}</p>
+                <p>
+                  {film.release_date
+                    ? `Release Date: ${film.release_date}`
+                    : ""}
+                </p>
                 <p>
                   {film.revenue
                     ? `Revenue: $${getRevenue(film.revenue)}`
@@ -53,7 +59,7 @@ const FilmDetail = ({ pathId }) => {
             </Stats>
 
             <div className="trailer">
-              {film.videos ? (
+              {film.videos.results.length !== 0 ? (
                 <iframe
                   className="gallery_movie"
                   allowFullScreen="allowfullscreen"
