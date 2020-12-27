@@ -42,7 +42,7 @@ const FilmDetail = ({ pathId }) => {
                 <p>
                   {film.release_date
                     ? `Release Date: ${film.release_date}`
-                    : ""}
+                    : null}
                 </p>
                 <p>
                   {film.revenue
