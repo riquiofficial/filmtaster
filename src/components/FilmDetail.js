@@ -37,7 +37,7 @@ const FilmDetail = ({ pathId }) => {
                 <h3>{film.title}</h3>
                 <p>Rating: {film.vote_average}/10</p>
                 <p>{film.tagline ? `"${film.tagline}"` : null}</p>
-                <p>Release Date: {film.release_date},</p>
+                <p>Release Date: {film.release_date}</p>
                 <p>
                   {film.revenue
                     ? `Revenue: $${getRevenue(film.revenue)}`

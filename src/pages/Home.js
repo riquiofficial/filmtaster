@@ -31,20 +31,24 @@ const Home = () => {
         <div className="searched">
           <h2>Searched Films</h2>
           <Films>
-            {searched.map((film) => (
-              <Film
-                name={film.title}
-                released={film.release_date}
-                image={
-                  film.backdrop_path
-                    ? movieImage(film.backdrop_path)
-                    : defaultImage
-                }
-                vote={film.vote_average}
-                id={film.id}
-                key={film.id}
-              />
-            ))}
+            {searched.map((film) =>
+              film.backdrop_path ? (
+                <Film
+                  name={film.title}
+                  released={film.release_date}
+                  image={
+                    film.backdrop_path
+                      ? movieImage(film.backdrop_path)
+                      : defaultImage
+                  }
+                  vote={film.vote_average}
+                  id={film.id}
+                  key={film.id}
+                />
+              ) : (
+                ""
+              )
+            )}
             ;
           </Films>
         </div>
