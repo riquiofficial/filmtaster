@@ -3,14 +3,22 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { loadDetail } from "../actions/detailAction";
 //router
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Film = ({ name, released, image, vote, id }) => {
   // const stringPathId = id.toString();
-  const dispatch = useDispatch();
 
-  const loadDetailHandler = () => {
+  //fix scrolling bug
+  const history = useHistory();
+  if (history.location.pathname === "/") {
+    document.body.style.overflow = "auto";
+  } else {
     document.body.style.overflow = "hidden";
+  }
+
+  //load details
+  const dispatch = useDispatch();
+  const loadDetailHandler = () => {
     dispatch(loadDetail(id));
   };
 

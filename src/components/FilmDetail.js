@@ -12,7 +12,6 @@ const FilmDetail = ({ pathId }) => {
   const exitDetailHander = (e) => {
     const element = e.target;
     if (element.classList.contains("shadow")) {
-      document.body.style.overflow = "auto";
       history.push("/");
     }
   };
@@ -26,7 +25,7 @@ const FilmDetail = ({ pathId }) => {
 
   return (
     <>
-      {
+      {!isLoading && (
         <CardShadow className="shadow" onClick={exitDetailHander}>
           <Detail>
             <Stats>
@@ -81,7 +80,7 @@ const FilmDetail = ({ pathId }) => {
             </Media>
           </Detail>
         </CardShadow>
-      }
+      )}
     </>
   );
 };
