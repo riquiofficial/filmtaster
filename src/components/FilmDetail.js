@@ -2,6 +2,8 @@ import styled from "styled-components";
 //images
 import { movieImage } from "../api";
 import cross from "../img/cross.svg";
+import fullStar from "../img/fullStar.svg";
+import blankStar from "../img/blankStar.svg";
 //router
 import { useHistory } from "react-router-dom";
 //redux
@@ -27,6 +29,20 @@ const FilmDetail = ({ pathId }) => {
     return revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  const getStars = () => {
+    let stars = [];
+    let rating = Math.round(film.vote_average / 2);
+    for (let i = 0; i < 5; i++) {
+      if (i < rating) {
+        stars.push(<img alt="star" key={i} src={fullStar}></img>);
+      } else {
+        stars.push(<img alt="blankstar" key={i} src={blankStar}></img>);
+      }
+    }
+    console.log(rating);
+    return stars;
+  };
+
   return (
     <>
       {!isLoading && (
@@ -38,6 +54,7 @@ const FilmDetail = ({ pathId }) => {
                 <p>
                   {film.vote_average ? `Rating: ${film.vote_average}/10` : null}
                 </p>
+                {getStars()}
                 <p>{film.tagline ? `"${film.tagline}"` : null}</p>
                 <p>
                   {film.release_date
