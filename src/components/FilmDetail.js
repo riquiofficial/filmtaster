@@ -58,7 +58,10 @@ const FilmDetail = ({ pathId }) => {
                 <p>{film.tagline ? `"${film.tagline}"` : null}</p>
                 <p>
                   {film.release_date
-                    ? `Release Date: ${film.release_date}`
+                    ? `Release Date: ${film.release_date
+                        .split("-")
+                        .reverse()
+                        .join("/")}`
                     : null}
                 </p>
                 <p>
