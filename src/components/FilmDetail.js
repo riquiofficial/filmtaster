@@ -54,7 +54,7 @@ const FilmDetail = ({ pathId }) => {
                 <p>
                   {film.vote_average ? `Rating: ${film.vote_average}/10` : null}
                 </p>
-                {getStars()}
+                {film.vote_average ? getStars() : null}
                 <p>{film.tagline ? `"${film.tagline}"` : null}</p>
                 <p>
                   {film.release_date
