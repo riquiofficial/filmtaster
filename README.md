@@ -16,15 +16,15 @@ The CSS was typed using Styled Components and the app is split into multiple com
 
 #### Versions used:
 
-React 17.0.1
-react-router/react-router-dom 5.2.0
-styled-components 5.2.1
-framer-motion 3.1.1
-Jest 5.11.6
-Axios 0.21.0
-react-redux 7.2.2
-Redux 4.0.5
-Redux Thunk 2.3
+React 17.0.1 <br>
+react-router/react-router-dom 5.2.0 <br>
+styled-components 5.2.1 <br>
+framer-motion 3.1.1 <br>
+Jest 5.11.6 <br>
+Axios 0.21.0 <br>
+react-redux 7.2.2 <br>
+Redux 4.0.5 <br>
+Redux Thunk 2.3 <br>
 
 # Launch
 
