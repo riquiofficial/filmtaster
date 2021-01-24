@@ -178,11 +178,11 @@ const Detail = styled.div`
 const Gallery = styled.div`
   width: 100%;
   display: flex;
-  flex-flow: column-wrap;
-  overflow: scroll;
+  flex-wrap: wrap;
   .gallery_image {
     width: 40%;
     flex: 1 0 auto;
+    margin: 10px;
   }
   @media screen and (max-width: 700px) {
     .gallery_image {
