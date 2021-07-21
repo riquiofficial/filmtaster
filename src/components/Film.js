@@ -26,7 +26,7 @@ const Film = ({ name, released, image, vote, id }) => {
     <StyledFilm onClick={loadDetailHandler}>
       <Link to={`/film/${id}`}>
         <h3>{name}</h3>
-        <p>{released.split("-").reverse().join("/")}</p>
+        <p>{released ? released.split("-").reverse().join("/") : ""}</p>
         <p>Rating: {vote}/10</p>
         <img src={image} alt={`poster for ${name}`} />
       </Link>
