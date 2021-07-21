@@ -23,8 +23,7 @@ const FilmDetail = ({ pathId }) => {
   };
 
   const { film, isLoading } = useSelector((state) => state.details);
-  console.log(film);
-  console.log(isLoading);
+
   const getRevenue = (revenue) => {
     return revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
@@ -39,7 +38,7 @@ const FilmDetail = ({ pathId }) => {
         stars.push(<img alt="blankstar" key={i} src={blankStar}></img>);
       }
     }
-    console.log(rating);
+
     return stars;
   };
 
